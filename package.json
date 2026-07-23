@@ -1,0 +1,20 @@
+{
+  "name": "ventury-kiosk-backend",
+  "version": "1.0.0",
+  "description": "Backend + config generator for Headwind MDM Community + FreeKiosk room-based building-control tablets (ventury GmbH runbook implementation)",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "init-db": "node scripts/init-db.js",
+    "add-device": "node scripts/add-device.js",
+    "list-devices": "node scripts/list-devices.js",
+    "gen-config": "node scripts/generate-config.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
