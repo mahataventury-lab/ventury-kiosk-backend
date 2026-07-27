@@ -118,6 +118,7 @@ rather test with `curl` than a browser.
 | Command | What it does |
 |---|---|
 | `npm run add-device -- --slot <slot> --building <b> --floor <f> --room <r> --dashboard <id>` | Register a new room slot + generate its token |
+| `npm run rotate-token -- --slot <slot>` | Rotate the token for an existing device and print a new one |
 | `npm run list-devices` | List all registered devices and their status |
 | `npm run gen-config -- --slot <slot> --token <token>` | Generate that device's FreeKiosk config JSON |
 | `npm start` | Run the backend |

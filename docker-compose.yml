@@ -1,0 +1,19 @@
+services:
+  kiosk-backend:
+    image: ghcr.io/mahataventury-lab/building-control-backend:latest
+    build: .
+    container_name: ventury-kiosk-backend
+    ports:
+      - "3001:3000"
+    environment:
+      PORT: 3000
+      BASE_URL: http://localhost:3001
+      DB_PATH: /app/data/kiosk.db
+    volumes:
+      - kiosk-data:/app/data
+      - kiosk-configs:/app/configs
+    restart: unless-stopped
+
+volumes:
+  kiosk-data:
+  kiosk-configs:

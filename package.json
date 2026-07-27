@@ -9,6 +9,7 @@
     "dev": "node --watch src/server.js",
     "init-db": "node scripts/init-db.js",
     "add-device": "node scripts/add-device.js",
+    "rotate-token": "node scripts/rotate-token.js",
     "list-devices": "node scripts/list-devices.js",
     "gen-config": "node scripts/generate-config.js"
   },
