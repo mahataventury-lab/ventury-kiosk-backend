@@ -1,19 +1,36 @@
+version: "3.9"
+
 services:
   kiosk-backend:
     image: ghcr.io/mahataventury-lab/building-control-backend:latest
     build: .
     container_name: ventury-kiosk-backend
+    restart: unless-stopped
     ports:
       - "3001:3000"
     environment:
-      PORT: 3000
-      BASE_URL: http://localhost:3001
-      DB_PATH: /app/data/kiosk.db
+      - PORT=3000
+      - BASE_URL=http://localhost:3001
+      - DB_PATH=/app/data/kiosk.db
     volumes:
       - kiosk-data:/app/data
       - kiosk-configs:/app/configs
-    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.routers.kiosk-backend.entrypoints=websecure
+      - traefik.http.routers.kiosk-backend.rule=Host(`kiosk-backend.example.com`)
+      - traefik.http.routers.kiosk-backend.tls=true
+      - traefik.http.routers.kiosk-backend.tls.certresolver=tls_resolver
+      - traefik.http.services.kiosk-backend.loadbalancer.server.port=3000
+    networks:
+      - proxy
 
 volumes:
   kiosk-data:
   kiosk-configs:
+
+networks:
+  proxy:
+    external: true
+    name: proxy
