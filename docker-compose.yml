@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   kiosk-backend:
-    image: ghcr.io/mahataventury-lab/building-control-backend:latest
+    image: ghcr.io/mahataventury-lab/ventury-kiosk-backend:latest
     build: .
     container_name: ventury-kiosk-backend
     restart: unless-stopped
