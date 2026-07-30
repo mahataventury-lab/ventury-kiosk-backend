@@ -35,6 +35,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: |
            ghcr.io/mahataventury-lab/ventury-kiosk-backend:latest
            ghcr.io/mahataventury-lab/ventury-kiosk-backend:${{ github.sha }}
