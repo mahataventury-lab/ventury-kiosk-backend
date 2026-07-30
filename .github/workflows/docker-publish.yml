@@ -36,5 +36,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/mahataventury-lab/building-control-backend:latest
-            ghcr.io/mahataventury-lab/building-control-backend:${{ github.sha }}
+           ghcr.io/mahataventury-lab/ventury-kiosk-backend:latest
+           ghcr.io/mahataventury-lab/ventury-kiosk-backend:${{ github.sha }}
